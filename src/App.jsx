@@ -1,6 +1,9 @@
 import Button from "./Components/Button"
 import TextFieldComponent from "./Components/TextFieldComponent"
 import SliderComponent from "./Components/SliderComponent"
+import StatusComponent from "./Components/StatusComponent"
+import CheckboxComponent from "./Components/CheckboxComponent"
+
 
 function App() {
  
@@ -10,6 +13,8 @@ function App() {
       <TextFieldComponent />
       <Button /> 
       <SliderComponent />
+      <StatusComponent />
+      <CheckboxComponent />
     </div>
   )
 }

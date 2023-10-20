@@ -22,6 +22,12 @@
         border-radius: 50%;
         margin-top: -6.5px;
       }
+
+      .slider::-webkit-slider-thumb:hover {
+        
+        border: 2px solid #A4FFAF;
+        background: #18171F;
+      }
       
       .slider::-moz-range-thumb {
         width: 20px; /* Set a specific slider handle width */
@@ -31,6 +37,12 @@
         border-radius: 50%;
         margin-top: -6.5px;
       }
+
+      .slider::-moz-range-thumb {
+        border: 2px solid #A4FFAF;
+        background: #18171F;
+      }
+
 
       .slider::-webkit-slider-runnable-track {
         height: 7px;
@@ -48,4 +60,43 @@
         fill: #E6E5EA;
         
     }
+
+
+    .container {
+        display: block;
+        position: relative;
+        padding-left: 35px;
+        cursor: pointer;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+      
+      /* Hide the browser's default checkbox */
+      .container input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+      }
+
+    .checkmark {
+        position: absolute;
+        top: 3.5px;
+        left: 0;
+        height: 20px;
+        width: 20px;
+        border: 2px solid #A4FFAF;
+      }
+    
+    input:checked ~ .checkmark {
+        background-color: #A4FFAF;
+    }
+
+    input:not(:checked) ~ .checkmark img {
+        visibility: hidden;
+    }
+    
 }
