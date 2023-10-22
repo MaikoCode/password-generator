@@ -1,10 +1,13 @@
+
 import { ReactSVG } from 'react-svg';
 import { useRef, useState } from "react";  
+import { usePassword } from '../context/passwordContext';
 import IconCopy from "../assets/images/icon-copy.svg";
 
 export default function TextFieldComponent() {
   const inputRef = useRef(null);
   const [copied, setCopied] = useState(false);  
+  const { generatedPassword } = usePassword();
 
   const handleCopyClick = () => {
     const inputValue = inputRef.current.value;
@@ -18,9 +21,15 @@ export default function TextFieldComponent() {
   };
 
   return (
-    <div className="bg-beige-black text-proper-white flex justify-between w-[400px] p-4">
-        <input ref={inputRef} type="text" className='bg-beige-black outline-none
-        placeholder:text-proper-white' placeholder='PTx1f5DaFX' />
+    <div className="bg-beige-black text-proper-white flex justify-between p-4 mb-4">
+        <input 
+            ref={inputRef}
+            type="text"
+            value={generatedPassword}   
+            readOnly                   
+            className='bg-beige-black outline-none placeholder:text-beige-blue'
+            placeholder='PTx1f5DaFX' 
+        />
         <div className='flex items-center'> 
             {copied && <span className="pr-2 uppercase text-green">copied</span>}
             <ReactSVG  

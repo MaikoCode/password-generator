@@ -1,25 +1,25 @@
-import { useState } from "react"
+import { usePassword } from "../context/passwordContext";
 
 export default function SliderComponent() {
-    const [value, setValue] = useState(10)  // valeur initiale à 10
+    const { passwordLength, setPasswordLength } = usePassword();
 
     const handleChange = (event) => {
-        setValue(event.target.value)
+        setPasswordLength(event.target.value);
     }
 
     return (
-        <div className="text-proper-white w-[200px]">
+        <div className="text-proper-white">
             <p className="flex justify-between">
-                <span>Character Length</span>
-                <span className="text-green">{value}</span>
+                <span className="my-2">Character Length</span>
+                <span className="text-green">{passwordLength}</span>
             </p>
             <input 
             type="range" 
             min="1" 
             max="20" 
-            value={value} 
+            value={passwordLength} 
             onChange={handleChange}
-            style={{ "--percent": `${(value / 20) * 100}%` }}
+            style={{ "--percent": `${(passwordLength / 20) * 100}%` }}
             className="slider" 
             />
         </div>
